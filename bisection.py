@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt 
 from matplotlib import animation
 import numpy as np 
-//
+
 def sgn(x):
     if x > 0:
         return 1
@@ -21,10 +21,12 @@ def bisect(f,a,b):
         return a, p
 
 def bisection_method(f,a,b,n):
-    for i in range(n):
+      print ('iteration\t a\t\t b\t')
+      print ('---------\t --------\t --------\t --------\t --------\t')
+      for i in range(n):
         a,b = bisect(f,a,b)
-    print(a,b)
-    return a,b
+        print ("%d\t\t %.6f\t %.6f" %(i ,a ,b))
+      return a,b
 
 def f(x):
     return x**2-4
@@ -58,7 +60,7 @@ def animate(i):
     curve.set_data(x,y)
     return left, right, curve,
 
-anim = animation.FuncAnimation(fig, animate, init_func=init, frames=15, interval=700, blit=True)
+anim = animation.FuncAnimation(fig, animate, init_func=init, frames=15, interval=700, repeat=False)
 
 plt.grid()
 plt.show()
